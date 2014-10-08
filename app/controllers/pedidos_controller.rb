@@ -29,6 +29,7 @@ class PedidosController < ApplicationController
   # POST /pedidos.json
   def create
     @pedido = Pedido.new(pedido_params)
+    @pedido.user = current_user
 
     respond_to do |format|
       if @pedido.save
